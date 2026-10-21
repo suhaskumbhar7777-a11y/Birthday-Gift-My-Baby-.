@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday, Baby! 🎂✨</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+    background: linear-gradient(
+        135deg,
+        #160b35,
+        #53245f,
+        #bd548b,
+        #27104a
+    );
+    background-size: 300% 300%;
+    animation: gradient 12s ease infinite;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    max-width: 900px;
+    padding: 40px 20px;
+    margin: auto;
+    position: relative;
+    z-index: 1;
+}
+
+.badge {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid #ffffff55;
+    border-radius: 30px;
+    background: #ffffff15;
+    margin-bottom: 25px;
+    backdrop-filter: blur(10px);
+}
+
+h1 {
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    margin-bottom: 20px;
+    text-shadow: 0 0 25px #ff8bd9;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px #ff80d5; }
+    to { text-shadow: 0 0 30px #ffb4e8; }
+}
+
+.intro {
+    max-width: 700px;
+    margin: 0 auto 25px;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #ffe8f8;
+}
+
+.cake {
+    font-size: 85px;
+    margin: 20px 0;
+    cursor: pointer;
+    display: inline-block;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+.hint {
+    font-size: 0.95rem;
+    margin-bottom: 35px;
+    color: #ffe0f3;
+}
+
+.quote-card {
+    padding: 30px 25px;
+    border: 1px solid #ffffff40;
+    border-radius: 25px;
+    background: #ffffff16;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 35px #00000025;
+    margin: 30px auto;
+    max-width: 750px;
+}
+
+.quote-card p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #ffe6f7;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+button {
+    border: none;
+    border-radius: 30px;
+    padding: 14px 28px;
+    margin: 10px 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, #ff8bce, #ffc2e5);
+    color: #4b174a;
+    box-shadow: 0 5px 20px #00000025;
+    transition: transform 0.2s;
+}
+
+button:hover {
+    transform: scale(1.06);
+}
+
+footer {
+    margin-top: 40px;
+    padding-bottom: 20px;
+    color: #ffe3f6;
+}
+
+.heart {
+    position: fixed;
+    bottom: -30px;
+    pointer-events: none;
+    animation: floatUp linear forwards;
+    z-index: 0;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+#message {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #10051deF;
+    z-index: 10;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.message-box {
+    max-width: 650px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 35px 25px;
+    border: 1px solid #ffffff55;
+    border-radius: 25px;
+    background: linear-gradient(145deg, #57245f, #a33d80);
+    box-shadow: 0 0 50px #ff8bd955;
+    animation: appear 0.5s ease;
+    text-align: left;
+}
+
+.message-box h2 {
+    margin-top: 0;
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.message-box p {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: #fff5fb;
+    margin-bottom: 15px;
+}
+
+@keyframes appear {
+    from {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 500px) {
+    .container {
+        padding: 30px 15px;
+    }
+    .intro {
+        font-size: 1rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="container">
+
+    <div class="badge">
+        ✨ A Special Surprise Made With Love ✨
+    </div>
+
+    <h1>🎂 Happy Birthday, Baby! 🎂</h1>
+
+    <p class="intro">
+        For the person who makes ordinary moments feel a little more beautiful. ❤️<br>
+        🎉 🎈 🎁 🥹 💐
+    </p>
+
+    <div class="cake" id="cake" title="Tap the cake!">🎂</div>
+
+    <p class="hint">
+        ✨ Tap the cake to make a wish! ✨
+    </p>
+
+    <div class="quote-card">
+        <p>
+            “Some people are beautiful because of how they look; others become beautiful because of how they make you feel. And then there are rare people like you, who make you realize that the most captivating thing about a person is the heart they carry.” ❤️
+        </p>
+    </div>
+
+    <button onclick="showMessage()">
+        Read Full Letter 💌
+    </button>
+
+    <button onclick="makeHearts()">
+        Send Some Love 💕
+    </button>
+
+    <footer>
+        <p>Made with ❤️ especially for you, baby</p>
+        <p>— Happy Birthday! 🎉</p>
+        <p style="margin-top: 12px;">🌟 ✨ 🎉 💖 💐 🎂</p>
+    </footer>
+
+</main>
+
+<div id="message">
+    <div class="message-box">
+        <h2>💌 Happy Birthday, Baby!</h2>
+
+        <p>Happy Birthday, baby! 🎂✨❤️</p>
+        <p>Eee hosa varsha ninage thumba khushi, preethi, aarogya matthe yashassu tharali. 🫶🏻 May this new chapter of your life bring you all the beautiful things your heart deserves, yaakandre ninna thara special aagiruva person ella olleya vishayagaligu deserve maadtane. 💗✨</p>
+        <p>Wishing you the happiest birthday, baby! ❤️ Ninna thara obba person life alli sigodu nijavaglu special. You have this beautiful way of making people smile without even trying. Ninna jothe swalpa time spend maadidru saaku, even ordinary moments kooda special aagi feel aagutte. 🥹💫</p>
+        <p>Ninna nagu nanna dina chennagisutte, ninna maatu nanna manassige nemmadi kodutte, matthe neenu nanna jothe iddaga ellavoo swalpa chennagide anisutte. ❤️✨</p>
+        <p>Honestly, ishtu bega neenu nanna manasalli ishtu dodda sthana paditira anta naanu nijavaglu ankonde irlilla. But nodu, gotte aagade neenu nanna manassige ishtu hattiravaagbitte. 🥹❤️ Sometimes, kelavobbaru namma life ge bandaga, avru namage ishtu important aagtaare anta naavu modale imagine kooda maadiralla. Neenu nanage anthaha obba special person. 🫶🏻</p>
+        <p>And honestly, baby, you're suspiciously nice! 😂❤️ Yen idu, ishtondu sweet aagidre doubt baralva? Are you secretly a villain who's using kindness to make everyone fall for you, or are you genuinely this cute and sweet all the time? 😂😉 Yaakandre neenu heege natural aagi sweet aagidre, adu swalpa dangerous alva… especially when someone is slowly getting more and more attached to you. 🫣❤️</p>
+        <p>But jokes apart, ninnalli nijavaglu eno ondu rare aada quality ide, baby. It's not just your smile or the way you talk; it's the way you make people feel comfortable, valued, and happy just by being yourself. Ninna olleya manassu, ninna kindness, matthe neenu bereyavaranna treat maado reethi — ivella ninnannu innu special maadutte. And honestly, anthaha genuine heart ellaralloo iralla. ❤️✨</p>
+        <p>On your birthday, life ninage neenu bereyavarige koduva khushiginta nooru pattu hechchu khushi kodali. Neenu bereyavara mukhadalli nagu tariso haage, ninna life kooda yaavattu naguvininda tumbirali. Ninna ella dreams nanasaagali, and may life surprise you with all the beautiful things you've been wishing for. You deserve so much happiness, baby. 🥹💗</p>
+        <p>Ondu maatra yaavattu badalaayisbeda, baby — ninna olleya manassanna, ninna sweetness na, matthe ninnannu neenaagi maaduva aa beautiful magic na. ❤️ The world needs more people like you, and naanu ninnannu meet aagiddu nijavaglu special anta feel maadtini. 🫶🏻</p>
+        <p>Sometimes, words saalalla to explain how special someone has become to us. Maybe ninge naanu eshtu care maadtini annodu ella time express maadakke aagalla, but one thing is sure — ninna presence nanna life na swalpa innu beautiful maadide. 🥹❤️</p>
+        <p>Happy Birthday once again, baby — stay happy, stay sweet, and never stop being the amazing person you are! 🥰🎂💫</p>
+        <p style="font-style: italic; margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 15px;">
+            “Kelavaru nodoke sundaravaagirtaare, kelavaru maatadoke chennagirtaare. Aadare ninna thara kelavaru namma manassige ishta aagodu avra look inda maatra alla, avru namage hege feel maadisuttaare annodrinda. Because the most beautiful thing about you isn't just your appearance, it's the heart you carry and the happiness you bring into people's lives.” ❤️✨
+        </p>
+
+        <div style="text-align: center; margin-top: 25px;">
+            <button onclick="closeMessage()">Close 💗</button>
+        </div>
+    </div>
+</div>
+
+<script>
+const cake = document.getElementById("cake");
+
+cake.addEventListener("click", () => {
+    cake.textContent = cake.textContent === "🎂" ? "🧁" : "🎂";
+    makeHearts();
+    confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 }
+    });
+});
+
+function showMessage() {
+    document.getElementById("message").style.display = "flex";
+    makeHearts();
+}
+
+function closeMessage() {
+    document.getElementById("message").style.display = "none";
+}
+
+function makeHearts() {
+    const emojis = ["💖", "💕", "💗", "✨", "🌟", "💝"];
+
+    for (let i = 0; i < 25; i++) {
+        const heart = document.createElement("div");
+
+        heart.className = "heart";
+        heart.textContent =
+            emojis[Math.floor(Math.random() * emojis.length)];
+
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = (16 + Math.random() * 24) + "px";
+        heart.style.animationDuration = (3 + Math.random() * 4) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 7500);
+    }
+}
+
+// Create a gentle stream of floating sparkles and hearts.
+setInterval(() => {
+    const heart = document.createElement("div");
+    const emojis = ["✨", "💗", "⭐"];
+
+    heart.className = "heart";
+    heart.textContent =
+        emojis[Math.floor(Math.random() * emojis.length)];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (12 + Math.random() * 18) + "px";
+    heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 10000);
+}, 700);
+
+document.getElementById("message").addEventListener("click", (event) => {
+    if (event.target.id === "message") {
+        closeMessage();
+    }
+});
+</script>
+
+</body>
+</html>
